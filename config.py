@@ -1,6 +1,9 @@
 import os
-
+from dotenv import load_dotenv
 basedir = os.path.abspath(os.path.dirname(__file__))
+load_dotenv(os.path.join(basedir, '.env'))
+
+
 
 class Config():
     """
@@ -8,6 +11,7 @@ class Config():
         Using Environment variables where available otherwise
         create the config variables if not done already.
     """
+
     SECRET_KEY = os.environ.get('SECRET_KEY') or 'You will never guess'
-    SQLALCHEMY_DATABASE_URI = os.environ.get('DATABASE_URL') or 'sqlite:///' + os.path.join(basedir, 'app.db')
+    SQLALCHEMY_DATABASE_URI ="postgresql+psycopg2://postgres:Miscellaneous17!@127.0.0.1:5432/carinven"
     SQLALCHEMY_TRACK_MODIFICATIONS = False 
